@@ -43,7 +43,7 @@
   "minimum-stability" : "dev",
   "autoload": {
     "psr-4" : {
-      "rgen3\\product\\" : "src"
+      "rgen3\\product\\" : ""
     }
   }
 }
