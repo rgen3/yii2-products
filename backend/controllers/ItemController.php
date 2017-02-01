@@ -5,6 +5,7 @@ namespace rgen3\product\backend\controllers;
 use rgen3\product\common\models\ProductItem;
 use rgen3\product\common\models\ProductItemSearch;
 use rgen3\product\common\models\ProductItemTranslation;
+use yii\db\Migration;
 use yii\web\Controller;
 
 class ItemController extends Controller

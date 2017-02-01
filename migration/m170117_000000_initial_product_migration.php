@@ -2,7 +2,6 @@
 
 class m170117_000000_initial_product_migration extends \yii\db\Migration
 {
-
     public function up()
     {
         $options = null;
