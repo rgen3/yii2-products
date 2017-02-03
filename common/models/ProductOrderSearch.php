@@ -6,6 +6,10 @@ use yii\data\ActiveDataProvider;
 
 class ProductOrderSearch extends ProductOrder
 {
+    /**
+     * @param $params
+     * @return ActiveDataProvider
+     */
     public function search($params)
     {
 
@@ -24,7 +28,7 @@ class ProductOrderSearch extends ProductOrder
         }
 
         $query->filterWhere([
-            'product_id' => $this->id
+            'id' => $this->id
         ]);
 
         $query->orderBy(['id' => SORT_DESC]);

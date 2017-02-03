@@ -25,7 +25,7 @@ class ProductItemSearch extends ProductItem
         }
 
         $query->filterWhere([
-            'product_id' => $this->id,
+            'id' => $this->id,
             'language_code' => $lang
         ]);
 
