@@ -8,14 +8,14 @@ use rgen3\product\common\models\ProductItemTranslation;
 use yii\db\Migration;
 use yii\web\Controller;
 
-class ItemController extends Controller
+class ItemController extends BaseController
 {
     public function actionIndex()
     {
         $searchModel = new ProductItemSearch();
         $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render($this->getTemplate('index'), [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider
         ]);
@@ -39,7 +39,7 @@ class ItemController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('create', [
+        return $this->render($this->getTemplate('create'), [
             'model' => $model
         ]);
     }
@@ -62,7 +62,7 @@ class ItemController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('create', [
+        return $this->render($this->getTemplate('create'), [
             'model' => $model
         ]);
     }
@@ -71,7 +71,7 @@ class ItemController extends Controller
     {
         $model = ProductItem::findOne(['id' => $id]);
 
-        return $this->render('view', [
+        return $this->render($this->getTemplate('view'), [
             'model' => $model
         ]);
     }

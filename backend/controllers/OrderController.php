@@ -8,14 +8,14 @@ use rgen3\product\common\models\ProductOrderSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
-class OrderController extends Controller
+class OrderController extends BaseController
 {
     public function actionIndex()
     {
         $searchModel = new ProductOrderSearch();
         $dataProvider = $searchModel->search(\Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render($this->getTemplate('index'), [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider
         ]);
@@ -32,7 +32,7 @@ class OrderController extends Controller
             return $this->redirect(['update', 'id' => $model->id]);
         }
 
-        return $this->render('create', [
+        return $this->render($this->getTemplate('create'), [
             'model' => $model
         ]);
     }
@@ -46,7 +46,7 @@ class OrderController extends Controller
             throw new NotFoundHttpException(Module::t('order', 'Order #{orderId} is not found', ['orderId' => $id]));
         }
 
-        return $this->render('update', [
+        return $this->render($this->getTemplate('update'), [
             'model' => $model
         ]);
     }
